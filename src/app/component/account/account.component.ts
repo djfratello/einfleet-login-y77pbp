@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { AuthService } from "./auth.service";
 
 /**
  * @title Toolbar overview
@@ -11,6 +12,28 @@ import { Component } from "@angular/core";
 export class AccountComponent {
   hide = true;
   page = "login";
+  credentials = {
+    email: "",
+    password: ""
+  };
+
+  registerInfo = "";
+
+  constructor(private router: Router, private authService: AuthService) {}
+
+  login() {
+    this.authService
+      .login(this.credentials)
+      .then(() => this.router.navigate(["/dashboard"]))
+      .catch(err => console.log(err.message));
+  }
+
+  register() {
+    this.authService
+      .register(this.credentials)
+      .then(() => (this.registerInfo = "ACCOUNT CREATED, PLZ LOGIN IN!"))
+      .catch(err => console.log(err.message));
+  }
 }
 
 /**  Copyright 2020 Google LLC. All Rights Reserved.
