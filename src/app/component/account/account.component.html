@@ -1,0 +1,64 @@
+<div class="basic-container" *ngIf="page == 'login'">
+	<mat-card>
+		<div class="example-container">
+			<mat-form-field appearance="fill" class="full-width">
+				<mat-label>Login</mat-label>
+				<input matInput />
+      </mat-form-field>
+				<br />
+				<mat-form-field appearance="fill" class="full-width">
+					<mat-label>Hasło</mat-label>
+					<input matInput [type]="hide ? 'password' : 'text'" />
+					<button
+          mat-icon-button
+          matSuffix
+          (click)="hide = !hide"
+          [attr.aria-label]="'Ukryj znaki'"
+          [attr.aria-pressed]="hide"
+        >
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+				</mat-form-field>
+				<br />
+				<button mat-raised-button color="primary">Zaloguj się</button>
+				<button mat-button (click)="page = 'register'">Zarejestruj</button>
+		</div>
+	</mat-card>
+</div>
+<div class="basic-container" *ngIf="page == 'register'">
+	<mat-card>
+		<div class="example-container">
+			<mat-form-field appearance="fill" class="full-width">
+				<mat-label>Imię</mat-label>
+				<input matInput />
+      </mat-form-field>
+				<br />
+				<mat-form-field appearance="fill" class="full-width">
+					<mat-label>Nazwisko</mat-label>
+					<input matInput />
+      </mat-form-field>
+					<br />
+					<mat-form-field appearance="fill" class="full-width">
+						<mat-label>Login</mat-label>
+						<input matInput />
+      </mat-form-field>
+						<br />
+						<mat-form-field appearance="fill" class="full-width">
+							<mat-label>Hasło</mat-label>
+							<input matInput [type]="hide ? 'password' : 'text'" />
+							<button
+          mat-icon-button
+          matSuffix
+          (click)="hide = !hide"
+          [attr.aria-label]="'Ukryj znaki'"
+          [attr.aria-pressed]="hide"
+        >
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+						</mat-form-field>
+						<br />
+						<button mat-raised-button color="primary">Dalej</button>
+						<button mat-button (click)="page = 'login'">Anuluj</button>
+		</div>
+	</mat-card>
+</div>

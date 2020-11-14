@@ -1,0 +1,22 @@
+<mat-sidenav-container class="appContainer">
+	<mat-sidenav #sidenav [mode]="mode.value">
+		<mat-toolbar color="primary">
+			<span class="example-spacer"></span>
+			<button mat-icon-button (click)="sidenav.toggle()" aria-label="Zamknij menu">
+        <mat-icon>close</mat-icon>
+      </button>
+		</mat-toolbar>
+		<menu-component></menu-component>
+	</mat-sidenav>
+
+	<mat-sidenav-content>
+		<mat-toolbar color="primary">
+			<button mat-icon-button (click)="sidenav.toggle()" aria-label="Menu">
+        <mat-icon>menu</mat-icon>
+      </button>
+			<span>einFleet PWA</span>
+			<span class="example-spacer"></span>
+		</mat-toolbar>
+		<login-component *ngIf="!login"></login-component>
+	</mat-sidenav-content>
+</mat-sidenav-container>
