@@ -1,11 +1,5 @@
 import { FormControl } from "@angular/forms";
-import {
-  Component,
-  OnInit,
-  ViewChild,
-  ElementRef,
-  OnDestroy
-} from "@angular/core";
+import { Component } from "@angular/core";
 
 /**
  * @title Toolbar overview
@@ -15,7 +9,7 @@ import {
   templateUrl: "pwaApp.html",
   styleUrls: ["pwaApp.css"]
 })
-export class pwaApp implements OnInit, OnDestroy {
+export class pwaApp {
   hide = true;
   login = false;
   mode = new FormControl("over");

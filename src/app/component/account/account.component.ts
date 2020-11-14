@@ -19,20 +19,14 @@ export class AccountComponent {
 
   registerInfo = "";
 
-  constructor(private router: Router, private authService: AuthService) {}
-
   login() {
-    this.authService
-      .login(this.credentials)
-      .then(() => this.router.navigate(["/dashboard"]))
-      .catch(err => console.log(err.message));
+    this.authService.login(this.credentials);
   }
 
   register() {
     this.authService
       .register(this.credentials)
-      .then(() => (this.registerInfo = "ACCOUNT CREATED, PLZ LOGIN IN!"))
-      .catch(err => console.log(err.message));
+      .then(() => (this.registerInfo = "ACCOUNT CREATED, PLZ LOGIN IN!"));
   }
 }
 
